@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/11/gym-logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        /* background: url(https://c4.wallpaperflare.com/wallpaper/940/736/840/man-dark-bodybuilder-muscle-wallpaper-preview.jpg); */
+        background-color: black;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Baloo Bhaina 2', cursive;
+
+
+
+
+    }
+
+    .left {
+        /* border: 2px solid red; */
+        display: inline-block;
+        position: absolute;
+        left: 44px;
+        top: 20px;
+
+    }
+
+    .left img {
+        width: 100px;
+        filter: invert();
+
+    }
+
+
+    .left div {
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        line-height: 12px;
+    }
+
+    .mid {
+        /* border: 2px solid green; */
+        display: block;
+        width: 50%;
+        margin: 20px auto;
+
+
+    }
+
+    .right{
+        /* border: 2px solid blue; */
+        width: 40px;
+        display: inline-block;
+        position: absolute;
+        right: 4cm;
+        top: 38px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .mail{
+        display: inline-block;
+        text-decoration: none;
+    }
+    .mail img{
+        width: 40px;
+        padding-left: 40px;
+    }
+    #email img{
+        width: 45px;
+        margin-top:2px ;
+    }
+
+    .navbar {
+        display: inline-block;
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 20px;
+
+    }
+
+    .navbar li a {
+        color: white;
+        text-decoration: none;
+        padding: 34px 20px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: underline;
+        color: rgb(79, 78, 78);
+    }
+
+    .btn {
+        margin: 0px 9px;
+        background-color: transparent;
+        color: white;
+        padding: 2px 0px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        font-size: 15px;
+        cursor: pointer;
+        font-family: 'Baloo Bhaina 2', cursive;
+    }
+
+    .btn:hover {
+        color: gray;
+
+    }
+
+    .calculator {
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 340px;
+        border: 2px solid white;
+        margin: auto;
+        margin-top: 6%;
+    }
+
+    input,
+    .calculate {
+        display: block;
+        margin: 35px;
+        
+        width: 89%;
+        border: none;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        border: 2px solid white;
+        text-align: center;
+        font-size: 18px;
+        margin-left: 15px;
+        font-family:  'Baloo Bhaina 2', cursive;
+
+    }
+
+    .calculate {
+        width: 91%;
+        height: 45px;
+        margin-top: 10%;
+        font-family: 'Baloo Bhaina 2', cursive;
+        font-size: 15px;
+        background-color: black;
+        color: white;
+    }
+
+    .calculate:hover {
+        background-color: red;
+    }
+    #result{
+        color: red;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    @media (max-width:480px){
+        .left img{
+            width: 80px;
+        }
+        .mid {
+            width: fit-content;
+            margin-top: 180px;   
+        }
+        .mid li a{
+            font-size: 14px;
+            justify-content: center;
+            display: flex;
+            padding: 13px;   
+        }
+        .left div{
+            font-size: 15px;
+        }
+        .right{
+            margin-right: 30px;
+        }
+        .calculator{
+            width: 300px;
+            
+        }
+    }
+</style>
+<script>
+    function calculateBMR() {
+    const age = parseInt(document.getElementById("age").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const height = parseFloat(document.getElementById("height").value);
+    
+    if (isNaN(age) || isNaN(weight) || isNaN(height) || age <= 0 || weight <= 0 || height <= 0) {
+        document.getElementById("result").innerText = "Please enter valid values.";
+        return;
+    }
+    
+    const bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    
+    document.getElementById("result").innerText = `Your BMR: ${bmr.toFixed(2)} calories/day`;
+}
+
+</script>
+
+<body>
+    <header class="header">
+        <!-- left box for logo -->
+        <div class="left">
+            <img src="https://cdn.pixabay.com/photo/2023/04/19/03/29/gym-7936489_1280.png" alt="">
+            <div>
+                Sam's Fitness
+            </div>
+
+
+        </div>
+        <!-- mid box for navbar -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a href="about.html">About</a>
+                </li>
+                <li><a href="fitness.html"
+                        class="active">BMR Calculator</a></li>
+                <li><a href="tel:+91 9579851765">Contact us</a></li>
+            </ul>
+        </div>
+        <!-- right box for buttons -->
+        <div class="right">
+            <a class="mail" href="https://instagram.com/sami_pevekar?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
+                <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-white-glyph-900x900.png" alt="">
+            </a>
+            <a id="email" class="mail" href="mailto:samipevekar12@gmail.com">
+                <img src="https://e7.pngegg.com/pngimages/519/73/png-clipart-email-computer-icons-symbol-logo-prototype-miscellaneous-text-thumbnail.png" alt="">
+            </a>
+        </div>
+    </header>
+    <div class="calculator">
+        <h1>BMR Calculator</h1>
+        <form id="bmr-form">
+            
+            <input type="number" id="age" name="age" required placeholder="Age">
+            
+            
+            <input type="number" id="weight" name="weight" required placeholder="Weight (kg)">
+            
+            
+            <input type="number" id="height" name="height" required placeholder="Height (cm)">
+            
+            <button type="button" class="calculate" onclick="calculateBMR()">Calculate BMR</button>
+        </form>
+        <div id="result"></div>
+    </div>
+</body>
+
+</html>
